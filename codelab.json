@@ -1,0 +1,27 @@
+{
+  "environment": "web",
+  "format": "html",
+  "prefix": "https://storage.googleapis.com",
+  "mainga": "UA-49880327-14",
+  "updated": "2021-05-16T23:46:06Z",
+  "id": "https://sloconf.com/labs/nobl9",
+  "duration": 0,
+  "title": "Your First Service Level Objective",
+  "authors": "Jeremy Cooper",
+  "summary": "In this SLOConf lab, you'll build an SLO using Nobl9, which will be deployed using sloctl and a YAML file.",
+  "source": "1RWkBbw0Lup3LrrH2XoI0AB7h9UVu8ITsFxgKh866DCA",
+  "theme": "slo",
+  "status": [
+    "draft"
+  ],
+  "category": [
+    "SLO"
+  ],
+  "tags": [
+    "sloconf",
+    "web"
+  ],
+  "feedback": "https://sloconf.slack.com/archives/C021GFBV6CB",
+  "ga": "167920947",
+  "url": "https://sloconf.com/labs/nobl9"
+}

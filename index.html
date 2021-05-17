@@ -1,0 +1,306 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>Your First Service Level Objective</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://storage.googleapis.com/codelab-elements/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="UA-49880327-14"></google-codelab-analytics>
+  <google-codelab codelab-gaid="167920947"
+                  id="https://sloconf.com/labs/nobl9"
+                  title="Your First Service Level Objective"
+                  environment="web"
+                  feedback-link="https://sloconf.slack.com/archives/C021GFBV6CB">
+    
+      <google-codelab-step label="Welcome" duration="0">
+        <h2 is-upgraded>What you will learn here:</h2>
+<p>In this lab you will learn about:</p>
+<ul>
+<li>SLO concepts and how using SLOs, Error Budgets and Customer Happiness changes the way you think about reliability</li>
+<li>The Nobl9 app, a tool developed to activate using these concepts at scale and with a highly iterative product based approach</li>
+</ul>
+<h3 is-upgraded>Please check your SLOCONF workspace messages</h3>
+<aside class="special"><p>Some notes about this Lab.</p>
+<ul>
+<li>You should have an email with the subject &#34;Nobl9 SLOCONF Lab Information&#34;, that will contain your conference credentials for logging into the Nobl9 app.</li>
+<li>You will need to access the SLOConf Slack Workgroup so you can play with the alerts and notifications feature in Nobl9.</li>
+<li>If you need any help on these exercises, get blocked in any way, or have feedback on any aspect of this lab, we&#39;re here for you in the <a href="https://sloconf.slack.com/archives/C021GFBV6CB" target="_blank">#sloconf-labs-nobl9</a> channel!</li>
+</ul>
+</aside>
+<p>Oh and one more thing, thanks for coming to SLOConf.  We are so grateful that you are taking the time to connect with the community! Please feel free to share your Lab experience with others! Finally, if you enjoyed the contents of this lab be sure to drop a line to our friends at Isos Technology.</p>
+<p>Let&#39;s get started!</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="An introduction to SLOs, Error Budgets and Nobl9" duration="0">
+        <h2 is-upgraded>Service Level Objectives (SLOs) are the key to the ultimate value proposition for any business. They give you the visibility to  ensure that your products and services are meeting your expectations for your customers&#39; experience and provide you with the leeway to not have 100% reliability. It&#39;s a win / win.</h2>
+<p>If you&#39;re new to SLO and how it relates to SRE, please watch this short introductory video on why SLO is important and whyt it&#39;s exciting.</p>
+<iframe class="youtube-video" src="https://www.youtube.com/embed/QAdQsEmZFwE?rel=0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Why does this method work?" duration="0">
+        <p>In this longer video you&#39;ll learn the method at a logical level, behind the math and computer science that drives SLO. You&#39;ll also learn why Nobl9 built the Nobl9 platform.</p>
+<iframe class="youtube-video" src="https://www.youtube.com/embed/d14NIrSdjB0?rel=0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Putting it into practice" duration="0">
+        <p>How do we tie our reliability objectives to how satisfied the customer is? How would it change how we work if we stopped focusing on how reliable we can make individual systems? These systems combined, make up our product and we need to get smart about how all of our systems affect customer happiness.</p>
+<p><img style="width: 478.50px" src="img/b9c2dfd1a9a43fe.png">s</p>
+<p>Reliability is a function of customer happiness. But SLAs measure total dissatisfaction at a contractual level. The A stands for Agreement, as in a legal contract with money and significant negative strategic (reputation) and tactical (wasted work) effects. What happens when we also use reliability objectives tied to customer happiness? We call these Service Level Objectives (or SLOs).</p>
+<aside class="special"><p>Paying attention to how many of our metrics are actually affecting customer happiness is not just how you get the most value of using an SLO, it&#39;s what an SLO is for.</p>
+</aside>
+<p>Using an SLO and an Error Budget is relatively easy, conceptually. Monitoring and refining this approach is harder work.</p>
+<p>The Nobl9 platform was created to help teams do this harder work.</p>
+<p>Using an Error Budget  has a some other benefits, (we won&#39;t have time to cover all of these in the lab today):<br></p>
+<ol type="1" start="1">
+<li>It changes the way you think about reliability. It&#39;s about making reliability a part of the product. Customer Happiness is why we create new features, but we also have to build on past success. This means that we can work as one team to prioritize both reliability and new feature development. </li>
+<li>Prior to using an Error Budget we see teams prioritizing work based on individual system reliability or perceived / inferred customer satisfaction. The teams that  get the most out of this approach, continuously improve their model for client expectations relating to reliability</li>
+<li>When we include user happiness, this tells us where we are over-engineering for system reliability which often reaches a point where the amount of work wildly exceeds the client&#39;s vaguely modeled expectations for reliability, often massively exceeding it.</li>
+<li>It helps us notice the velocity of customer unhappiness and can be codified in policy to even agree that an incident did not actually occur just because there was a Service Level Indicator out of bounds. With an Error Budget you give the entire product team the ability to see Product&#39;s reliability investments in a way that allows you to prevent &#34;the death of a thousand cuts&#39;&#39; that can come from metrics that are not specifically connecting specific Customer Happiness objectives to an Error Budget. </li>
+<li>Error Budgets allow your team to accept unreliability. Accepting <em>any</em>  unreliability, enables your team and your organization to make better decisions when improving the reliability of the product as a whole. More effective systemic and long term solutions are more visible, because the problem we are solving for <strong><em>always</em></strong> has to have two parts:</li>
+</ol>
+<ul>
+<li>How much can we improve reliability targets?</li>
+<li>Do our customers care? Are we helping our typical customers too, or are we just improving reliability for our &#34;most important&#34; customers.</li>
+</ul>
+<aside class="special"><p>SLO and Error Budgets allow you to demonstrate that the only reliability metrics that really inform your product&#39;s growth are the reliability improvements you can correlate with customer satisfaction.</p>
+</aside>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Exercise: A different Way of thinking, an example" duration="0">
+        <p>Thinking about the work as a function of Customer Satisfaction, take a look at these two diagrams. In this example we&#39;re going to focus on a &#34;Narrow&#34; time context SLO technique. Without SLOs both of these incidents are bad, but they are not at all the same. </p>
+<p class="image-container"><img style="width: 281.00px" src="img/bdf122af4f87a1d5.png"></p>
+<p>The Good one looks like it&#39;s going to be very easy to A) Identify the root cause B) Communicate with the organization how customer happiness was affected and how we responded.</p>
+<p>But why is the first one bad?</p>
+<p>It&#39;s bad because the customer happiness impacts are not very informative. We spent just as much error budget (the customer was dissatisfied just as long), but when we think about reliability this way:</p>
+<p>We don&#39;t have enough information to determine which part of the product was causing the customer to be unhappy.</p>
+<aside class="warning"><p>A signal that a service is not reliable is only relevant to the prioritization and proportion of our efforts to deliver reliability, <strong>when we can demonstrate that our customers expectations are not met</strong>.</p>
+</aside>
+<p>Why is the time scope indicating the customer was unhappy the whole time, when the SLI is frequently jumping up and down so much. Do we need to &#34;fix all the things&#34;? Maybe not.</p>
+<p>Without using SLO and Error Budgets, the frequency of reliability metrics don&#39;t associate Customer Happiness with how multiple systems and external factors interact to deliver a reliable customer experience. </p>
+<p>For example, if a combination of systems are slightly degraded about every fifteen minutes, and that combination completely degrades the customer experience without any of the systems themselves appearing to be &#34;unreliable&#34;, how would we know? Once we know, how would we be able to tell when product reliability is &#34;barely met&#34; if we can&#39;t see when they were not met?</p>
+<aside class="warning"><p>Modeling how customer reliability expectations are impacted into your reliability monitoring<strong> changes how you monitor, and how you respond to Service Level Indicators. </strong></p>
+</aside>
+<p>With a tool like Nobl9 we can use a narrower time frame, one minute to many months, to  decide how our system metering should &#34;spend&#34; the error budget. </p>
+<p>Our customers, control our error budgets and they WANT you to deplete them. Your customers are telling you that they can be inconvenienced if you pay <em>very close </em>attention to how they use your product, and when they stop paying attention to your product.</p>
+<p class="image-container"><img style="width: 432.48px" src="img/ee68f2da762db60a.png"></p>
+<p>We can also compare trends in customer reliability over much longer time frames (quarters and years). Let&#39;s focus on the narrow time frame.</p>
+<p>Using a very narrow time frame to consume our error budget, ensures we are identifying the root causes of reliability impacts that customers care about. More importantly it informs our work to improve reliability in the context of more accurately understanding our customer reliability expectations.</p>
+<p><strong>With this approach we can get very specific and transparent about how much reliability is considered &#34;reasonable&#34; to our customer. </strong>The product team, and even the customers, are all on board with making sure we agree what different levels of customer happiness really are which improves trust. </p>
+<p>Which brings us back to our statement:</p>
+<h2 is-upgraded>SLOs should capture the performance and availability levels that, <strong>if barely met</strong>, would keep the <strong>typical customer</strong> of a service happy.</h2>
+<p>When we use SLOs and Error Budgets we can also:</p>
+<ul>
+<li>Understand if we should release <em>This Friday</em> and what we should be focusing on tactical delivery (Shipping product) as a function for customer happiness. One week to one month</li>
+<li>Understand how our systems are adhering to Goals over time: Prioritization and Planning within the Quarter</li>
+</ul>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Take a tour of the Nobl9 app" duration="0">
+        <ol type="1" start="1">
+<li>Go to <a href="https://app.nobl9.com" target="_blank">https://app.nobl9.com</a></li>
+<li>Login with your credentials (in your email, if you can&#39;t find it we can DM you in the SLOCONF slack workgroup). </li>
+<li>Overview of each Concept / Lab subject area - Hands on Labs</li>
+<li>Tour of the interface</li>
+<li>Video please</li>
+<li>About the Sample Monitoring Data Set (Yahoo Finance!</li>
+</ol>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Adding a New SLO" duration="0">
+        <p>We&#39;ve prepared the lab environment with example services and SLOs to get you started.</p>
+<p>You, and all our other Lab participants, use these as references so please do not edit the SLOs in each of the example services.</p>
+<h2 is-upgraded>First, we&#39;ll have you login and create a place to do your experiments</h2>
+<ol type="1" start="1">
+<li>Login with provided credentials (in your email, if you can&#39;t find it we can DM you in the SLOCONF slack workgroup)</li>
+</ol>
+<aside class="warning"><p>Normally you would not need to create a new service just to create an SLO.</p>
+<p>We wanted you to be able to use the tool without connecting your team&#39;s real Noble9 account to your real monitoring systems, so that&#39;s beyond the scope of this lab. Instead you&#39;re going to create a service and then create new SLOs using the same system monitoring inputs that are used in our examples.</p>
+<p>Oh, and each lab participant needs a place to work on these exercises with these temporary conference accounts, so we&#39;re going to have you create a service for the SLOs you are going to create today.</p>
+<p>This Service you create to experiment will be visible to other lab participants. After you do this lab you can play with the tool to create your own SLOs with the sample data we&#39;ve provided. </p>
+</aside>
+<ol type="1" start="1">
+<li>Click on the Services List (if it&#39;s not already selected). It looks like this:</li>
+</ol>
+<p class="image-container"><img style="width: 624.00px" src="img/be52668eeed331da.png"></p>
+<ol type="1" start="2">
+<li>Click the Pink Plus button to create a new Service</li>
+<li>Enter a unique Service Name <strong>that you will remember</strong>. <br>We recommend using your name or initials in addition to some sort of &#34;product&#34; or &#34;project&#34; name, but it&#39;s up to you.</li>
+<li>Raise your right hand and say aloud:<br>&#34;I will not edit other Lab Participants SLOs (in the services <em>they</em> create).&#34;</li>
+</ol>
+<p>(This oath will make sense after you do the next bit, it&#39;s pretty fun.)</p>
+<h2 is-upgraded>Ok, create your first SLO!</h2>
+<ol type="1" start="2">
+<li>Switch to the Service Level Objectives view, by clicking this icon on the left navigation bar:<br><img style="width: 86.00px" src="img/87dbe41b7c47a845.png"></li>
+<li>Click the Pink Plus button to Create a new SLO. It&#39;s the only pink thing on the page, you probably want to have this lab in a separate browser window.</li>
+</ol>
+<aside class="special"><p>The Nobl9 App will guide you through this process!</p>
+<p>There are four screens focused on the three parts of an SLO we&#39;ll need to configure and one screen for the Alert and Notification configuration. </p>
+<p>We&#39;ll give you the settings for your first SLO, so you can experience the thrill of seeing data flowing into right away.</p>
+<ul>
+<li>There&#39;s field help on the right side of each configuration page. </li>
+<li>When you&#39;ve provided all four screens of information correctly the Apply button in the lower right will become active (clicking on it will save your first SLO!)</li>
+</ul>
+</aside>
+<p>Step One: Select a Service</p>
+<ul>
+<li>Choose the service you created In the Create a Service step earlier in this lab exercise)</li>
+<li>Select         the data source YOU CREATED (remember your promise). <br>It should look like this.</li>
+</ul>
+<p class="image-container"><img style="width: 624.00px" src="img/d59f0cae1a0a078e.png"></p>
+<p>Go to step two by clicking on the Step 2 Heading (this is how you navigate all the steps, and you can jump back and forth if you missed something or need to go back and change something). </p>
+<p>Step Two: Select a Data Source and Metric</p>
+<ul>
+<li>Select the SloConf Lab data source, a two panel element will appear.d</li>
+<li>In the Threshold metric, enter the following query to check latency on yahoo.com: <br><code>SELECT percentile(duration, 95) FROM SyntheticCheck WHERE monitorName = &#39;yahoo&#39;  TIMESERIES</code></li>
+</ul>
+<p class="image-container"><img style="width: 624.00px" src="img/91150d3a8baecf1c.png"></p>
+<p>Step Three: Defining Time Window</p>
+<ul>
+<li>Set a 1 hour rolling time window, notice you can set rolling time windows in Minutes, Hours, Days or Months. The maximums are in the help reference text on the right side of the page.</li>
+</ul>
+<p class="image-container"><img style="width: 624.00px" src="img/74738cdc3cd80e1.png"></p>
+<p>Step Three: Define Error Budget Calculation and Objectives</p>
+<ul>
+<li>Choose Occurrences for the &#34;Error Budget Calculation Method&#34; </li>
+<li>Define a target of ‘99&#39;<br>yep, not even one decimal place. That&#39;s a 99.00000% target, it&#39;s a lab example.</li>
+<li>Name the experience ‘ok&#39;</li>
+<li>Set the threshold at ‘1500&#39;</li>
+</ul>
+<p class="image-container"><img style="width: 624.00px" src="img/64d875742619e866.png"></p>
+<p>Step Four: Add Name, Alert Policy</p>
+<ul>
+<li>Enter your display name: ‘yahoo-latency-&lt;yourlastname&gt;.</li>
+<li>Add a description if you like</li>
+<li>Add the only Alert Policy we have configured for our Lab today &#34;test slo&#34;. <br>(it&#39;s a abnormally strict policy for the use case of this lab)</li>
+</ul>
+<p>Notice you can add multiple Alert Policies. We&#39;ll talk about why that&#39;s important in the View Alert Configuration interface part of this lab.</p>
+<p>Click Apply in the lower right. <br></p>
+<aside class="warning"><p>The Apply button will not work if any fields are invalid. If you&#39;ve filled everything in and can&#39;t click Apply Look for a RED outline on any field that doesn&#39;t have properly formatted information too. You may have to click to previous steps to spot the error.</p>
+</aside>
+<aside class="special"><p>If you want to play around with creating additional SLOs go nuts! We have some examples of additional objectives and suggestions for additional SLO configurations we could have done with this configuration at the end of this Lab.</p>
+</aside>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="How SLO Alerts need to work" duration="0">
+        <p>And really, we&#39;re pretty opinionated about this because the best part of Nobl9 is how it does SLOs the way they are meant to work.</p>
+<aside class="special"><p>We&#39;ve created an Alert already for your SLOs already... but we want you to see how this interface works. We won&#39;t be creating an Alert today in the Lab but there&#39;s a really cool aspect of the Alerts system we want you to notice.</p>
+<p>We&#39;re using an example here that&#39;s reasonably realistic in our Lab setting, because we don&#39;t want to &#34;spam&#34; the alerts channel, and we&#39;ll only be looking at this during SLOCONF.</p>
+</aside>
+<p>We&#39;re not going to configure any alerts in this lab, but feel free to click around without saving/modifying anything in the Alerts. Thanks! </p>
+<p>Using a similar step by step process you saw when you created your first SLO, you can see how we create an Alert. Let&#39;s go ahead and look at the Interface.</p>
+<ol type="1" start="1">
+<li>Select the Alerts icon  <img style="width: 84.00px" src="img/666ff40bea489558.png"></li>
+<li>Click on the Pink Plus sign to create a new alert. We don&#39;t need to save it, since we have an example setup.</li>
+<li>Select all three checkboxes to see the parameters available</li>
+</ol>
+<p>Your configuration screen should look like this.</p>
+<p class="image-container"><img style="width: 317.57px" src="img/691d0ead419a46f7.png"></p>
+<p>The first step, <strong>Define Alert Condition</strong>, is really the critical configuration and it&#39;s pretty light in terms of the amount of data it asks for. It&#39;s kind of surprising, isn&#39;t it. It&#39;s very important that you notice this simplicity because this is where the flexibility of Nobl9 really shines. </p>
+<p>Our alerts can be tied to one or multiple error budget evaluations. These alerts are proactive webhooks to lake your team(s) awakre or trigger automation before the error budget is exhausted.</p>
+<p>This is the part we&#39;re really excited about, and it&#39;s just a lot of wicked smart (ahem, very well tested) math.</p>
+<p class="image-container"><img style="width: 329.70px" src="img/b3a16f0868763d6f.png"></p>
+<p><em>From an SLO based SRE perspective you only need alerts when your error budget is </em></p>
+<ul>
+<li><em>close to being exhausted</em></li>
+<li><em>rising at, literally an alarming rate, right now</em></li>
+<li><em>trending to be exhausted in a certain amount of time</em></li>
+</ul>
+<p>From an alert in perspective, you now are empowered with the ability to be alerted when customers are actually impacted. What if your incident response team was only alerted on trends and spikes directly related to customer happiness? And, what if those alerts are only related to a cumulative burn down of how much unreliability we have before our typical customer stops paying attention to our product completely.</p>
+<p>That&#39;s why the Alert Configuration interface is so simple to configure.</p>
+<p>Nobl9 dynamically calculates the Error Budget as it receives the data. If you are using a rolling time window, as is often the case, when customer happiness is rising, the Error Budget is replenished. Your customers can be at varying levels including ecstatic beyond their wildest dreams, pretty satisfied, and very dissatisfied. </p>
+<p>The Error Budget is how we can more easily see the problems that are affecting customer satisfaction. Without an SLO we don&#39;t have a target level of reliability. And without a measurable level of unreliability we can&#39;t make changes with knowledge of where we stand with our level of service. We can find a balance between the floor dissatisfaction, and the ceiling of 100% reliability. If we know how to find that balance, we can also balance how many new features and how many site reliability improvements we can make in the near term and the long term.</p>
+<p>We can improve the product by adding new features and improve reliability at the same time.</p>
+<p>Q: So where is the Error Budget? If you can configure the Alert, there must be a total error budget, right?</p>
+<p>A: The error budget is calculated based on SLO objectives being applied to incoming SLI data. When we created our first SLO, we only created one actual Objective. We only tied it to one Alert, but we could have created multiple objectives and applied multiple alert policies. Alert policies examine the error budgets of the SLOs to which they have been applied.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Can&#39;t monitoring do this?" duration="0">
+        <p>One of the common misconceptions is that SLOs are attempting to replace your common monitoring. While SLO based alerts can help reduce alert fatigue by allowing you to eliminate the non-customer impacting event alerts, the goal is not to replace your current monitoring. SLOs work in tandem with your current tools. That being said they can help expose things your monitoring can&#39;t....</p>
+<h2 is-upgraded>Our scenario</h2>
+<p>Let&#39;s say you have a website, under typical monitoring you might have an SLI for web page latency. Now you don&#39;t want an alert for every time it happens, so typically a duration is put in place before the alert is triggered. </p>
+<p>You know that customers will not tolerate load times that take over 500ms and are unhappy if it is worse than that.</p>
+<p>In your monitoring you have an alert if less than 90% of page loads are under 500ms for 1 minute send an alert</p>
+<p>In Nobl9 you have SLOs looking at the same latency over the past 28 days. Latency SLOs can have more than one objective as we have discussed. You have an SLO objective of 90% loads under 500ms, but also 95% of loads under 750ms and 99% of page loads under 1000ms.</p>
+<h2 is-upgraded>What do you think?</h2>
+<p>Q: How do the different tools treat a constant status where 91% of the page loads are under 500ms for the last 28 days ? and what if this 9% was experiencing over 1000ms</p>
+<p>A: The monitoring tool would assume that everything was perfectly fine. Nobl9 would be tracking your error budget and let you know that your SLO was at risk visually and / or via an alert. This would be reflected in the 90% SLO objective as error budget being burnt. It would also be able to track that some of your users were experiencing that very poor 1000ms much earlier in the 99% SLO objective. You can now capture the capture both the typical user experience and the long tail of bad experience</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Thanks and Where to go from here" duration="0">
+        <p>Usually teams like to see the math play out. Agreeing on your first SLO&#39;s and Alert policy configuration just starts you on the journey of having an Error Budget driven SRE profile for customer happiness. The real, and very effective work is beginning a more pragmatic dialog between the Service owners and the product teams on what we&#39;re learning about how our monitoring systems are surfacing steps that move us into a position where the Error budget stops alerting us with things that have to be addressed right now all the time.  </p>
+<p>Usually teams start working on really attacking the systems that were causing very slow burn or very spiky reliability issues, because they can now see what parts of those systems are contributing to customer satisfaction.</p>
+<p>The first few weeks can be pretty giddy, but it&#39;s also the beginning of improving your SLO and Alerting configurations.</p>
+<p>Then you really get the whole picture. Model the objectives to map to a customer satisfaction tiered scale. When customers are just barely satisfied, you can be working on planned work to get them to the next level up. What&#39;s always fun is when we get the model accurate enough that you realize your SLOs are providing better incident response signals then you&#39;ve ever had before.</p>
+<p>We&#39;ve got some ways you can modify the SLO you created earlier, in the next module.</p>
+<p>Go ahead and play around with the interface.</p>
+<p>If you want to tweak what you did in the lab exercises, we have some suggestions in the next module.</p>
+<p>This is the end of the guided lab! </p>
+<p>Congratulations!</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Other SLO Configuration suggestions" duration="0">
+        <p>These are some other ideas to get you thinking about how you can play with the SLO configurations connected to our sample SLI monitoring data sources.</p>
+<h2 is-upgraded>Change the Objective, or Create Additional Objectives</h2>
+<p>For the Objective you created in this Lab here are some alternate configurations to play with:</p>
+<p>Try adding a threshold of 2000, or 30000, with a different target percentage experience name.</p>
+<h2 is-upgraded>Add a new Objective</h2>
+<p>SELECT percentile(duration, 95) FROM SyntheticCheck WHERE monitorName = &#39;yahoo&#39; AND locationLabel=&#39;San Francisco, CA, USA&#39;  TIMESERIES</p>
+<p>SELECT percentile(duration, 95) FROM SyntheticCheck WHERE monitorName = &#39;yahoo&#39; AND locationLabel=&#39;Washington, DC, USA&#39; TIMESERIES</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Glossary" duration="0">
+        <p>SRE - Service Reliability Engineering, the practice of designing and maintaining a system from a reliability perspective. Usually measured in terms of how a services availability, responsiveness and (blah blah) are compliant with reliability targets.</p>
+<p>SERVICE LEVEL OBJECTIVE (SLO) - An SLO is used to prioritize and decide how much effort to invest in activities that improve customer happiness. They are not only used for SRE but they are very important to SRE.</p>
+<p>CUSTOMER HAPPINESS A tiered measure of how happy or unhappy a customer is with the reliability of a product (not the systems that deliver the product).</p>
+<p>ERROR BUDGET Specifically, and under what conditions do we all agree: How much Customer Happiness we are willing to sacrifice so we can continuously improve our entire product.</p>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://storage.googleapis.com/codelab-elements/native-shim.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/custom-elements.min.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/prettify.js"></script>
+  <script src="https://storage.googleapis.com/codelab-elements/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+
+</body>
+</html>
